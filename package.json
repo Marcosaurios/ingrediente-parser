@@ -1,0 +1,48 @@
+{
+  "name": "ingrediente-parser",
+  "version": "1.0.0",
+  "description": "A simple ingredient parser for spanish language.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test-watch": "node tests/watch.js",
+    "build": "peggy -o ingredientes-parser.js --format es grammar/ingredientes.pegjs && npm run test",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Marcosaurios/ingrediente-parser.git"
+  },
+  "keywords": [
+    "ingredients",
+    "parser",
+    "spanish",
+    "español",
+    "ingredientes"
+  ],
+  "author": "Marcos Urios <holamarcosaurios@gmail.com> (https://marcosurios.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Marcosaurios/ingrediente-parser/issues"
+  },
+  "homepage": "https://github.com/Marcosaurios/ingrediente-parser#readme",
+  "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.16.7",
+    "@commitlint/cli": "^16.0.1",
+    "@commitlint/config-conventional": "^16.0.0",
+    "@types/jest": "^27.4.0",
+    "chokidar": "^3.5.2",
+    "husky": "^7.0.0",
+    "jest": "^27.4.7",
+    "peggy": "^1.2.0"
+  },
+  "babel": {
+    "env": {
+      "test": {
+        "plugins": [
+          "@babel/plugin-transform-modules-commonjs"
+        ]
+      }
+    }
+  }
+}
