@@ -12,7 +12,7 @@ chokidar.watch( pegSource).on("change", (path, stats) => {
       return
     }
 
-    process.stdout.write(`${stderr.toString()} \n\n`)
+    console.log(`${stderr.toString()} \n\n`)
   })
 
   proc.on('error', (e) => console.log(`Wops! Error ${e}`))
