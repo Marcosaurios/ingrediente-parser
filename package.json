@@ -25,6 +25,7 @@
   "bugs": {
     "url": "https://github.com/Marcosaurios/ingrediente-parser/issues"
   },
+  "type": "module",
   "homepage": "https://github.com/Marcosaurios/ingrediente-parser#readme",
   "dependencies": {
     "peggy": "^1.2.0"
