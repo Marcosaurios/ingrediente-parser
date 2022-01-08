@@ -26,6 +26,9 @@
     "url": "https://github.com/Marcosaurios/ingrediente-parser/issues"
   },
   "homepage": "https://github.com/Marcosaurios/ingrediente-parser#readme",
+  "dependencies": {
+    "peggy": "^1.2.0"
+  },
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.16.7",
     "@commitlint/cli": "^16.0.1",
@@ -33,8 +36,7 @@
     "@types/jest": "^27.4.0",
     "chokidar": "^3.5.2",
     "husky": "^7.0.0",
-    "jest": "^27.4.7",
-    "peggy": "^1.2.0"
+    "jest": "^27.4.7"
   },
   "babel": {
     "env": {

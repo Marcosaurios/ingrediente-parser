@@ -20,5 +20,5 @@ jobs:
         with:
           # The Node.js version to configure
           node-version: ${{ matrix.node }}
-      # We don´t need to npm i nothing, as the build will already be uploaded in the repo's root
+      - run: "npm ci"
       - run: "npm run build"
