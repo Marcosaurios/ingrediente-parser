@@ -1,5 +1,4 @@
-![npm](https://img.shields.io/npm/v/ingrediente-parser?color=RGB%2887%2C%20201%2C%2045%29)
-![](https://img.shields.io/librariesio/release/npm/ingrediente-parser)
+[![npm](https://img.shields.io/npm/v/ingrediente-parser?color=green-light)](https://www.npmjs.com/package/ingrediente-parser)
 
 
 # ingrediente-parser
