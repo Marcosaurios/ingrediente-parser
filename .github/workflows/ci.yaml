@@ -1,0 +1,23 @@
+name: Run tests
+
+on:
+  push:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  CI_tests:
+    name: CI tests
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [10, 12, 14]
+    steps:
+      # Configures the node version used on GitHub-hosted runners
+      - uses: actions/setup-node@v2
+        with:
+          # The Node.js version to configure
+          node-version: ${{ matrix.node }}
+      # We don´t need to npm i nothing, as the build will already be uploaded in the repo's root
+      - run: "npm run build"
