@@ -2,7 +2,7 @@ start
   = read_ingredients
 
 read_ingredients
-  = amount:typed_amount (_+)? ingredient:ingredient (_+)? phrase? {
+  = amount:amount? (_+)? ingredient:ingredient (_+)? phrase? {
     return {
       amount: amount,
       ingredient: ingredient
@@ -13,44 +13,36 @@ read_ingredients
 
 // amount:2 type:(_docenas_de_naranja)
 // amount:2 type:(kg_de_naranja)
-typed_amount
- = amount:amount ws:_? prepositions? _? type:measurament? {
+amount 'cantidad'
+ = amount:basic_amount ws:_? prepositions? _? type:measurament? {
    if (!type) return amount
    if (!ws) return `${amount}${type}`
 
    return `${amount} ${type}`
  }
 
-measurament
+measurament 'medida'
   = ( t:(amount_types/container_types/units) _ prepositions {return t})
   
-amount
+basic_amount 'numero de cantidad'
   = fraction / float / integer
 
-phrase
-  = $(word (" " word)*)
-
-word
-  = letter+
-
-letter
-  = [a-zA-Z]
 
 // TYPES
-float
+float 'decimal'
  = $(integer? [.] integer)
 
-fraction
+fraction 'fraccion'
   = $(integer [/] integer)
 
-integer
+integer 'entero'
   = digits:[0-9]+ { return digits.join(''); }
 
 // Units
-units 
+units 'unidades'
   = kilogram / gram / liter / milligram / milliliter
 
-gram
+gram 'gramos'
   = 'gramos'i
   / 'gramo'i
   / 'gr.'i
@@ -58,46 +50,52 @@ gram
   / 'g.'i
   / 'g'i
 
-kilogram
+kilogram 'kilogramo'
   = 'kilogramos'i / 'kilogramo'i / 'kg.'i / 'kg'i
 
-liter
+liter 'litro'
   = 'litros'i
   / 'litro'i
   / 'l.'i
   / 'l'i
 
-milligram
-  = 'milligramos'i
-  / 'milligramo'i
+milligram 'miligramo'
+  = 'miligramos'i
+  / 'miligramo'i
   / 'mg.'i
   / 'mg'i
 
-milliliter
+milliliter 'mililitro'
   = 'mililitros'i
-  / 'millilitro'i
+  / 'mililitro'i
   / 'ml.'i
   / 'ml'i
 
 // Words
-ingredient
+phrase 'frase'
+  = $(word (_ word)*)+
+
+ingredient 'ingrediente'
+ = word
+
+word 'palabra'
   = $([A-zÀ-ú]i)+
 
-prepositions 'prepositions'
+prepositions 'preposiciones'
   = 'de'
 
-_ 'separators'
+_ 'separadores'
   = ' '
   / [\t]
 
 
 // ESP specific
-amount_types 'amount_types'
+amount_types 'otras medidas'
   = 'docenas'i / 'docena'i
-  / 'puñaditos'i / 'puñadito'i / "puñado"i
+  / 'puñaditos'i / 'puñadito'i / 'puñado'i
 
-container_types 'container_types'
- = 'vasos' / 'vaso' 
- / 'vasitos' / 'vasito'
- / 'cucharitas' / 'cucharita' / 'cucharadas' / 'cucharada'
+container_types 'recipientes'
+ = 'vasos'i / 'vaso'i 
+ / 'vasitos'i / 'vasito'
+ / 'cucharitas'i / 'cucharita'i / 'cucharadas'i / 'cucharada'i / 'cucharaditas'i / 'cucharadita'i
 
