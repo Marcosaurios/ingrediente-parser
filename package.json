@@ -2,7 +2,7 @@
   "name": "ingrediente-parser",
   "version": "1.0.0",
   "description": "A simple ingredient parser for spanish language.",
-  "main": "index.js",
+  "main": "ingredientes-parser.js",
   "scripts": {
     "test": "jest --verbose",
     "test-watch": "node tests/watch.js",
