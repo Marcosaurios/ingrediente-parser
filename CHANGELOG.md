@@ -1,4 +1,7 @@
 
+## v1.0.2
+- Export package as ESM modules with type "module"
+
 ## v1.0.1
 - Added support for empty amounts. (amount unit?)? (ingredient)
 - Added support for accented ingredients. ("limón")
