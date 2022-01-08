@@ -1,6 +1,6 @@
 {
   "name": "ingrediente-parser",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple ingredient parser for spanish language.",
   "main": "ingredientes-parser.js",
   "scripts": {
