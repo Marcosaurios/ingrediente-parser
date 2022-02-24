@@ -25,6 +25,12 @@ La lectura de los ingredientes se realiza siguiendo el formato: (cantidad) (ingr
   - `vasos` | `vaso` | `vasitos` | `vasito` | `cucharitas` | `cucharita` | `cucharadas` | `cucharada` | `cucharaditas` | `cucharadita`
 
 
+## Uso
+`npm install ingrediente-parser`
+Puedes cargar el parser como un módulo ESM: `import * as parser from 'ignrediente-parser`
+
+## Ejemplos
+En la carpeta `/example` puedes ver un ejemplo en uso del parser. También puedes probarlo directamente en [https://ingrediente-parser.netlify.app](https://ingrediente-parser.netlify.app).
 
 ## Desarrollo
 - `npm run test`: Corre los tests.
